@@ -8,36 +8,36 @@
 import SwiftUI
 
 struct MuscleCategoryView: View {
-
-    private let exerciseList: [ExerciseItem] = [
-        ExerciseItem(image: Image("chestpicture"), name: "Chest"),
-        ExerciseItem(image: Image("training"), name: "Back"),
-        ExerciseItem(image: Image("training"), name: "Shoulders"),
-        ExerciseItem(image: Image("training"), name: "Legs"),
-        ExerciseItem(image: Image("training"), name: "Core"),
-        ExerciseItem(image: Image("training"), name: "Biceps"),
-        ExerciseItem(image: Image("training"), name: "Triceps")
+    
+    private let categoryList: [CategoryList] = [
+        CategoryList(image: Image("chestpicture"), name: "Chest"),
+        CategoryList(image: Image("training"), name: "Back"),
+        CategoryList(image: Image("training"), name: "Shoulders"),
+        CategoryList(image: Image("training"), name: "Legs"),
+        CategoryList(image: Image("training"), name: "Core"),
+        CategoryList(image: Image("training"), name: "Biceps"),
+        CategoryList(image: Image("training"), name: "Triceps")
     ]
-
+    
     var body: some View {
-
-        List(exerciseList) { exerciseItem in
-            NavigationLink(destination: EmptyView()) {
+        
+        List(categoryList) { exerciseCategory in
+            NavigationLink(destination: ExercisesView(categoryName: exerciseCategory.name)) {
                 HStack{
                     ZStack {
-                        exerciseItem.image.resizable()
+                        exerciseCategory.image.resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 75, height: 75)
                             .clipped()
                             .cornerRadius(150)
                     }
-                    Text(exerciseItem.name).font(.headline)
+                    Text(exerciseCategory.name).font(.headline)
                 }.padding(7)
             }
             .navigationBarTitle("Muscle Categorys")
-            }
-
-
+        }
+        
+        
     }
 }
 
@@ -47,7 +47,7 @@ struct MuscleCategoryView_Previews: PreviewProvider {
     }
 }
 
-struct ExerciseItem: Identifiable {
+struct CategoryList: Identifiable {
     let id = UUID()
     let image: Image
     let name: String
