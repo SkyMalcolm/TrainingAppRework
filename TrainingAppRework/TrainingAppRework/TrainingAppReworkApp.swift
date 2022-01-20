@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct TrainingAppReworkApp: App {
@@ -15,3 +16,4 @@ struct TrainingAppReworkApp: App {
         }
     }
 }
+

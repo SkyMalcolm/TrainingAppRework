@@ -18,6 +18,8 @@
 		91FA8DFA2791D7C0004A24E1 /* FavoriteExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8DF92791D7C0004A24E1 /* FavoriteExercisesView.swift */; };
 		91FA8DFC2791D7D4004A24E1 /* MuscleCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8DFB2791D7D4004A24E1 /* MuscleCategoryView.swift */; };
 		91FA8DFE2796EA1F004A24E1 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8DFD2796EA1F004A24E1 /* ExercisesView.swift */; };
+		91FA8E132799A864004A24E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91FA8E122799A863004A24E1 /* GoogleService-Info.plist */; };
+		91FA8E162799A937004A24E1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 91FA8E152799A937004A24E1 /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		91FA8DF92791D7C0004A24E1 /* FavoriteExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteExercisesView.swift; sourceTree = "<group>"; };
 		91FA8DFB2791D7D4004A24E1 /* MuscleCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleCategoryView.swift; sourceTree = "<group>"; };
 		91FA8DFD2796EA1F004A24E1 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
+		91FA8E122799A863004A24E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91FA8E162799A937004A24E1 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +106,7 @@
 		91FA8DCC2791D6C9004A24E1 /* TrainingAppRework */ = {
 			isa = PBXGroup;
 			children = (
+				91FA8E122799A863004A24E1 /* GoogleService-Info.plist */,
 				91FA8DCD2791D6C9004A24E1 /* TrainingAppReworkApp.swift */,
 				91FA8DCF2791D6C9004A24E1 /* ContentView.swift */,
 				91FA8DF72791D779004A24E1 /* MenuView.swift */,
@@ -155,6 +160,9 @@
 			dependencies = (
 			);
 			name = TrainingAppRework;
+			packageProductDependencies = (
+				91FA8E152799A937004A24E1 /* FirebaseAuth */,
+			);
 			productName = TrainingAppRework;
 			productReference = 91FA8DCA2791D6C9004A24E1 /* TrainingAppRework.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +235,9 @@
 				Base,
 			);
 			mainGroup = 91FA8DC12791D6C8004A24E1;
+			packageReferences = (
+				91FA8E142799A937004A24E1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 91FA8DCB2791D6C9004A24E1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -245,6 +256,7 @@
 			files = (
 				91FA8DD52791D6CC004A24E1 /* Preview Assets.xcassets in Resources */,
 				91FA8DD22791D6CC004A24E1 /* Assets.xcassets in Resources */,
+				91FA8E132799A864004A24E1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +607,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		91FA8E142799A937004A24E1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		91FA8E152799A937004A24E1 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91FA8E142799A937004A24E1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 91FA8DC22791D6C8004A24E1 /* Project object */;
 }
