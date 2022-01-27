@@ -11,7 +11,7 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct Muscle: Identifiable {
-    @DocumentID var id: String?
+    @DocumentID var id: String? = UUID().uuidString
     var image: String
     var name: String
 }
