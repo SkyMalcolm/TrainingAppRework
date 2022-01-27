@@ -22,9 +22,8 @@ class AppViewModel: ObservableObject {
     
     func signIn(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
-            guard result != nil, error == nil else {
-                return
-            }
+           
+            
             
             DispatchQueue.main.async {
                 self?.signedIn = true
@@ -34,10 +33,9 @@ class AppViewModel: ObservableObject {
     
     func signUp(email: String, password: String) {
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
-            guard result != nil, error == nil else {
-                return
-            }
+           print("hej \(result) : \(error)")
             
+            print("det körs här med")
             DispatchQueue.main.async {
                 self?.signedIn = true
             }
@@ -58,12 +56,13 @@ struct ContentView: View {
         NavigationView{
             if viewModel.signedIn {
                 VStack {
-                    Text("You are signed in")
+                    NavigationLink(destination: MenuView()) {
                     Button(action: {
                         viewModel.signOut()
                     }, label: {
                         Text("Sign out").foregroundColor(Color.blue)
                     })
+                    }
                 }
                 
                 
@@ -102,7 +101,7 @@ struct SignInView: View {
                 .background(lightGreyColor)
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
-            
+            NavigationLink(destination: MenuView()) {
             Button(action: {
                 guard !email.isEmpty, !password.isEmpty else {
                     return
@@ -118,6 +117,8 @@ struct SignInView: View {
                 .frame(width: 220, height: 60)
                 .background(Color.green)
                 .cornerRadius(15.0)
+                
+            }
             
             NavigationLink("CREATE ACCOUNT", destination: SignUpView())
                 .font(.headline)
@@ -126,9 +127,10 @@ struct SignInView: View {
                 .frame(width: 220, height: 60)
                 .background(Color.blue)
                 .cornerRadius(15.0)
+            
+            }
         }
     }
-}
 
 struct SignUpView: View {
     @State var email: String = ""
@@ -156,7 +158,7 @@ struct SignUpView: View {
                 .background(lightGreyColor)
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
-            
+            NavigationLink(destination: MenuView()) {
             Button(action: {
                 guard !email.isEmpty, !password.isEmpty else {
                     return
@@ -172,6 +174,7 @@ struct SignUpView: View {
                 .frame(width: 220, height: 60)
                 .background(Color.green)
                 .cornerRadius(15.0)
+            }
         }
     }
 }

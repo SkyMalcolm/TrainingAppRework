@@ -6,36 +6,58 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct MuscleCategoryView: View {
     
-    private let categoryList: [CategoryList] = [
-        CategoryList(image: Image("chestpicture"), name: "Chest"),
-        CategoryList(image: Image("training"), name: "Back"),
-        CategoryList(image: Image("training"), name: "Shoulders"),
-        CategoryList(image: Image("training"), name: "Legs"),
-        CategoryList(image: Image("training"), name: "Core"),
-        CategoryList(image: Image("training"), name: "Biceps"),
-        CategoryList(image: Image("training"), name: "Triceps")
+    /*private let muscleList = [
+        Muscle(image: Image("chestpicture"), name: "Chest"),
+        Muscle(image: Image("training"), name: "Back"),
+        Muscle(image: Image("training"), name: "Shoulders"),
+        Muscle(image: Image("training"), name: "Legs"),
+        Muscle(image: Image("training"), name: "Core"),
+        Muscle(image: Image("training"), name: "Biceps"),
+        Muscle(image: Image("training"), name: "Triceps")
     ]
+     */
+    //@StateObject var muscleViewModel = MuscleViewModel()
     
     var body: some View {
+        //let muscle = muscleList
         
-        List(categoryList) { exerciseCategory in
-            NavigationLink(destination: ExercisesView(categoryName: exerciseCategory.name)) {
+        Text("Hej")
+            .onAppear() {
+                Firestore.firestore().collection("cities").document("LA").setData([
+                    "name": "Los Angeles",
+                    "state": "CA",
+                    "country": "USA"
+                ]) { err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                    } else {
+                        print("Document successfully written!")
+                    }
+                }
+            }
+        
+        /*List(muscleViewModel.muscles) { muscleCategory in
+            NavigationLink(destination: ExercisesView(categoryName: muscleCategory.name)) {
                 HStack{
                     ZStack {
-                        exerciseCategory.image.resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 75, height: 75)
-                            .clipped()
-                            .cornerRadius(150)
+                        Text(muscleCategory.image)//.resizable()
+                            //.aspectRatio(contentMode: .fill)
+                            //.frame(width: 75, height: 75)
+                            //.clipped()
+                            //.cornerRadius(150)
                     }
-                    Text(exerciseCategory.name).font(.headline)
+                    Text(muscleCategory.name).font(.headline)
                 }.padding(7)
             }
             .navigationBarTitle("Muscle Categorys")
-        }
+            .onAppear() {
+                self.muscleViewModel.fetchData()
+            }
+        }*/
         
         
     }
@@ -47,8 +69,3 @@ struct MuscleCategoryView_Previews: PreviewProvider {
     }
 }
 
-struct CategoryList: Identifiable {
-    let id = UUID()
-    let image: Image
-    let name: String
-}
