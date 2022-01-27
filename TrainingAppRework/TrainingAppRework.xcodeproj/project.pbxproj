@@ -124,9 +124,9 @@
 				91FA8DCF2791D6C9004A24E1 /* ContentView.swift */,
 				91FA8DF72791D779004A24E1 /* MenuView.swift */,
 				91FA8DFB2791D7D4004A24E1 /* MuscleCategoryView.swift */,
-				91FA8E2127A0174D004A24E1 /* Models */,
 				91FA8DFD2796EA1F004A24E1 /* ExercisesView.swift */,
 				91FA8DF92791D7C0004A24E1 /* FavoriteExercisesView.swift */,
+				91FA8E2127A0174D004A24E1 /* Models */,
 				91FA8DD12791D6CC004A24E1 /* Assets.xcassets */,
 				91FA8DD32791D6CC004A24E1 /* Preview Content */,
 			);

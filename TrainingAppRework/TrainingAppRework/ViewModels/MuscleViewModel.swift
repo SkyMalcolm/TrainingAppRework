@@ -31,11 +31,8 @@ class MuscleViewModel: ObservableObject {
                 let name = data["name"] as? String ?? ""
                 print("fetchData: \(name)")
                 return Muscle(image: image, name: name)
-                
             }
-            
-            }
-            
         }
     }
+}
 
