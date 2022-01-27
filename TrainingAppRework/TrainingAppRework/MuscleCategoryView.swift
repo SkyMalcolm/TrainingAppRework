@@ -24,31 +24,20 @@ struct MuscleCategoryView: View {
     @StateObject var muscleViewModel = MuscleViewModel()
     
     var body: some View {
-        let db = Firestore.firestore()
-        //let muscle = muscleList
-        
-        /*Text("Hej")
-         .onAppear() {
-         db.collection("cities").document("LA").setData([
-         "name": "Los Angeles",
-         "state": "CA",
-         "country": "USA"
-         ]) { err in
-         if let err = err {
-         print("Error writing document: \(err)")
-         } else {
-         print("Document successfully written!")
-         }
-         }
-         }*/
+       
         List(muscleViewModel.muscles) { muscle in
             NavigationLink(destination: ExercisesView(categoryName: muscle.name)) {
                 HStack{
                     ZStack{
-                        Text(muscle.image).font(.title)
-                        Text(muscle.name).font(.title)
+                        Image(muscle.image).resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 75, height: 75)
+                            .clipped()
+                            .cornerRadius(150)
+        
                     }
-                }
+                    Text(muscle.name).font(.headline)
+                }.padding(7)
                 .navigationBarTitle("Muscle Categorys")
                 
             }
