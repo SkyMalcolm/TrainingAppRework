@@ -12,7 +12,7 @@ struct ExercisesView: View {
     var categoryName: String
     
     private let exerciseList = [
-        Exercise(exerciseImage: Image("chestpicture"), exerciseName: "Chestpress"),
+        Exercise(exerciseImage: Image("training"), exerciseName: "Chestpress"),
         Exercise(exerciseImage: Image("training"), exerciseName: "Cable fly"),
         Exercise(exerciseImage: Image("training"), exerciseName: "Shoulders"),
         Exercise(exerciseImage: Image("training"), exerciseName: "Legs"),
