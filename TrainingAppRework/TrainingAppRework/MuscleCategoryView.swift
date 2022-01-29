@@ -22,7 +22,7 @@ struct MuscleCategoryView: View {
                         AsyncImage(url: URL(string: muscle.image)) { ima in
                             ima.resizable()
                                 .aspectRatio(contentMode: .fill)
-                                .frame(width: 75, height: 75)
+                                .frame(width: 90, height: 90)
                                 .clipped()
                                 .cornerRadius(150)
                         } placeholder: {
