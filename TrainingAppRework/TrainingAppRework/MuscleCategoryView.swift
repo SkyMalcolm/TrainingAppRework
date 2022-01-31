@@ -6,40 +6,41 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
 struct MuscleCategoryView: View {
     
-    private let categoryList: [CategoryList] = [
-        CategoryList(image: Image("chestpicture"), name: "Chest"),
-        CategoryList(image: Image("training"), name: "Back"),
-        CategoryList(image: Image("training"), name: "Shoulders"),
-        CategoryList(image: Image("training"), name: "Legs"),
-        CategoryList(image: Image("training"), name: "Core"),
-        CategoryList(image: Image("training"), name: "Biceps"),
-        CategoryList(image: Image("training"), name: "Triceps")
-    ]
+    @StateObject var muscleViewModel = MuscleViewModel()
     
     var body: some View {
-        
-        List(categoryList) { exerciseCategory in
-            NavigationLink(destination: ExercisesView(categoryName: exerciseCategory.name)) {
+       
+        List(muscleViewModel.muscles) { muscle in
+            NavigationLink(destination: ExercisesView(categoryName: muscle.name)) {
                 HStack{
-                    ZStack {
-                        exerciseCategory.image.resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 75, height: 75)
-                            .clipped()
-                            .cornerRadius(150)
+                    ZStack{
+                        AsyncImage(url: URL(string: muscle.image)) { ima in
+                            ima.resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 90, height: 90)
+                                .clipped()
+                                .cornerRadius(150)
+                        } placeholder: {
+                            ProgressView()
+                        }
                     }
-                    Text(exerciseCategory.name).font(.headline)
+                    Text(muscle.name).font(.headline)
                 }.padding(7)
+                .navigationBarTitle("Muscle Categorys")
             }
-            .navigationBarTitle("Muscle Categorys")
         }
-        
-        
+        .onAppear() {
+            self.muscleViewModel.fetchData()
+        }
     }
 }
+
+
 
 struct MuscleCategoryView_Previews: PreviewProvider {
     static var previews: some View {
@@ -47,8 +48,3 @@ struct MuscleCategoryView_Previews: PreviewProvider {
     }
 }
 
-struct CategoryList: Identifiable {
-    let id = UUID()
-    let image: Image
-    let name: String
-}
