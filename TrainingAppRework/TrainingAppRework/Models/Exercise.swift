@@ -7,9 +7,11 @@
 
 import Foundation
 import SwiftUI
+import Firebase
+import FirebaseFirestoreSwift
 
 struct Exercise: Identifiable {
-    let id = UUID()
-    let exerciseImage: Image
+    @DocumentID var id: String? = UUID().uuidString
+    let exerciseImage: String
     let exerciseName: String
 }

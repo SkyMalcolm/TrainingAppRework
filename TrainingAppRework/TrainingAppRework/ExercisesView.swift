@@ -9,35 +9,34 @@ import SwiftUI
 
 struct ExercisesView: View {
     
+    @StateObject var exerciseViewModel = ExerciseViewModel()
+    
     var categoryName: String
     
-    private let exerciseList = [
-        Exercise(exerciseImage: Image("training"), exerciseName: "Chestpress"),
-        Exercise(exerciseImage: Image("training"), exerciseName: "Cable fly"),
-        Exercise(exerciseImage: Image("training"), exerciseName: "Shoulders"),
-        Exercise(exerciseImage: Image("training"), exerciseName: "Legs"),
-        Exercise(exerciseImage: Image("training"), exerciseName: "Core"),
-        Exercise(exerciseImage: Image("training"), exerciseName: "Biceps"),
-        Exercise(exerciseImage: Image("training"), exerciseName: "Triceps")
-    ]
-    
     var body: some View {
-        let exercise = exerciseList
+        
         
         VStack{
             Text(categoryName)
-            List(exercise) { exercises in
+            List(exerciseViewModel.exercises) { exercise in
                 HStack {
                     ZStack {
-                        exercises.exerciseImage.resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 75, height: 75)
-                            .clipped()
-                            .cornerRadius(150)
+                        AsyncImage(url: URL(string: exercise.exerciseImage)) { ima in
+                            ima.resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 90, height: 90)
+                                .clipped()
+                                .cornerRadius(150)
+                        } placeholder: {
+                            ProgressView()
+                        }
                     }
-                    Text(exercises.exerciseName).font(.headline)
+                    Text(exercise.exerciseName).font(.headline)
                 }.padding(7)
             }
+        }
+        .onAppear() {
+            self.exerciseViewModel.fetchExerciseData(muscle: categoryName)
         }
     }
 }

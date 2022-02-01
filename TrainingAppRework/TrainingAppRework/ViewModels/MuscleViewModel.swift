@@ -16,12 +16,12 @@ class MuscleViewModel: ObservableObject {
     private var db = Firestore.firestore()
     
     func fetchData() {
-        print("fetch")
-        db.collection("muscles").addSnapshotListener { (QuerySnapshot, error) in
-            print("errorNotis: \(error)")
+        //print("fetch")
+        db.collection("muscles").getDocuments() { (QuerySnapshot, error) in
+            //print("errorNotis: \(error)")
             
             guard let documents = QuerySnapshot?.documents else {
-                print("no documents")
+               // print("no documents")
                 return
             }
             
@@ -30,7 +30,7 @@ class MuscleViewModel: ObservableObject {
                 
                 let image = data["image"] as? String ?? ""
                 let name = data["name"] as? String ?? ""
-                print("fetchData: \(name)")
+                //print("fetchData: \(name)")
                 return Muscle(image: image, name: name)
             }
         }
