@@ -16,12 +16,12 @@ class MuscleViewModel: ObservableObject {
     private var db = Firestore.firestore()
     
     func fetchData() {
-        print("fetch")
+        //print("fetch")
         db.collection("muscles").addSnapshotListener { (QuerySnapshot, error) in
-            print("errorNotis: \(error)")
+            //print("errorNotis: \(error)")
             
             guard let documents = QuerySnapshot?.documents else {
-                print("no documents")
+               // print("no documents")
                 return
             }
             

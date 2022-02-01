@@ -19,8 +19,8 @@ struct MuscleCategoryView: View {
             NavigationLink(destination: ExercisesView(categoryName: muscle.name)) {
                 HStack{
                     ZStack{
-                        AsyncImage(url: URL(string: muscle.image)) { ima in
-                            ima.resizable()
+                        AsyncImage(url: URL(string: muscle.image)) { muscleImage in
+                            muscleImage.resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 90, height: 90)
                                 .clipped()
