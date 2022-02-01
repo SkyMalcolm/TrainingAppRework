@@ -36,7 +36,7 @@ struct ExercisesView: View {
             }
         }
         .onAppear() {
-            self.exerciseViewModel.fetchExerciseData()
+            self.exerciseViewModel.fetchExerciseData(muscle: categoryName)
         }
     }
 }

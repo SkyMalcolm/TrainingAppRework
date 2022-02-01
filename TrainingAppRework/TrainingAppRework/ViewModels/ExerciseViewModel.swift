@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestore
 import SwiftUI
+import FirebaseFirestoreSwift
 
 class ExerciseViewModel: ObservableObject {
     
@@ -15,9 +16,9 @@ class ExerciseViewModel: ObservableObject {
     
     private var db = Firestore.firestore()
     
-    func fetchExerciseData() {
+    func fetchExerciseData(muscle: String) {
         
-        db.collection("exercises").addSnapshotListener { (QuerySnapshot, error) in
+        db.collection("exercises").document(muscle).collection("exercises").getDocuments() { (QuerySnapshot, error) in
             
             
             guard let documents = QuerySnapshot?.documents else {

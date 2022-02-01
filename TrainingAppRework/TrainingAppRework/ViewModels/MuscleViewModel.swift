@@ -17,7 +17,7 @@ class MuscleViewModel: ObservableObject {
     
     func fetchData() {
         //print("fetch")
-        db.collection("muscles").addSnapshotListener { (QuerySnapshot, error) in
+        db.collection("muscles").getDocuments() { (QuerySnapshot, error) in
             //print("errorNotis: \(error)")
             
             guard let documents = QuerySnapshot?.documents else {
@@ -30,7 +30,7 @@ class MuscleViewModel: ObservableObject {
                 
                 let image = data["image"] as? String ?? ""
                 let name = data["name"] as? String ?? ""
-                print("fetchData: \(name)")
+                //print("fetchData: \(name)")
                 return Muscle(image: image, name: name)
             }
         }
