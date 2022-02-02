@@ -23,15 +23,16 @@ struct ExercisesView: View {
                     ZStack {
                         AsyncImage(url: URL(string: exercise.exerciseImage)) { ima in
                             ima.resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 90, height: 90)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 350, height: 350)
                                 .clipped()
-                                .cornerRadius(150)
+                                //.cornerRadius(150)
+                            
                         } placeholder: {
                             ProgressView()
                         }
                     }
-                    Text(exercise.exerciseName).font(.headline)
+                    Text(exercise.exerciseName)//.font(.headline)
                 }.padding(7)
             }
         }

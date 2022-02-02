@@ -14,4 +14,5 @@ struct Exercise: Identifiable {
     @DocumentID var id: String? = UUID().uuidString
     let exerciseImage: String
     let exerciseName: String
+
 }
