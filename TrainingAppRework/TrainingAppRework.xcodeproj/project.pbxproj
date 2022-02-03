@@ -27,6 +27,7 @@
 		91FA8E3627A02529004A24E1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 91FA8E3527A02529004A24E1 /* FirebaseStorage */; };
 		91FA8E3A27A03D24004A24E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91FA8E3927A03D24004A24E1 /* GoogleService-Info.plist */; };
 		91FA8E3E27A93C1B004A24E1 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E3D27A93C1A004A24E1 /* ExerciseViewModel.swift */; };
+		91FA8E4027AC0741004A24E1 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E3F27AC073F004A24E1 /* LogInViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		91FA8E2C27A021EA004A24E1 /* MuscleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleViewModel.swift; sourceTree = "<group>"; };
 		91FA8E3927A03D24004A24E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91FA8E3D27A93C1A004A24E1 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
+		91FA8E3F27AC073F004A24E1 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			children = (
 				91FA8E2C27A021EA004A24E1 /* MuscleViewModel.swift */,
 				91FA8E3D27A93C1A004A24E1 /* ExerciseViewModel.swift */,
+				91FA8E3F27AC073F004A24E1 /* LogInViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				91FA8E2B27A01F24004A24E1 /* Muscle.swift in Sources */,
 				91FA8E2927A01DA8004A24E1 /* Exercise.swift in Sources */,
+				91FA8E4027AC0741004A24E1 /* LogInViewModel.swift in Sources */,
 				91FA8E2D27A021EB004A24E1 /* MuscleViewModel.swift in Sources */,
 				91FA8DFE2796EA1F004A24E1 /* ExercisesView.swift in Sources */,
 				91FA8DFC2791D7D4004A24E1 /* MuscleCategoryView.swift in Sources */,

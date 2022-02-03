@@ -19,8 +19,8 @@ struct ExercisesView: View {
         VStack{
             Text(categoryName)
             List(exerciseViewModel.exercises) { exercise in
-                HStack {
-                    ZStack {
+                VStack {
+                    Text(exercise.exerciseName).font(.headline)
                         AsyncImage(url: URL(string: exercise.exerciseImage)) { ima in
                             ima.resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -32,15 +32,16 @@ struct ExercisesView: View {
                             ProgressView()
                         }
                     }
-                    Text(exercise.exerciseName)//.font(.headline)
+                    
                 }.padding(7)
             }
-        }
         .onAppear() {
             self.exerciseViewModel.fetchExerciseData(muscle: categoryName)
         }
+        
+        }
     }
-}
+
 
 struct ExercisesView_Previews: PreviewProvider {
     static var previews: some View {
