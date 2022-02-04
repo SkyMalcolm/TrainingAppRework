@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MenuView: View {
+    @EnvironmentObject var signOut: LogInViewModel
     var body: some View {
 
         VStack{
@@ -30,6 +31,16 @@ struct MenuView: View {
             .frame(width: 220, height: 60)
             .background(Color.blue)
             .cornerRadius(15.0)
+            
+            Button(action: {
+                signOut.signOut()
+            }, label: {
+                Text("Sign Out")
+            })
+            
+
+            
+            
 
         }
 

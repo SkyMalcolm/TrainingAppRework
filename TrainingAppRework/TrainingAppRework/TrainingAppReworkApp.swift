@@ -17,7 +17,9 @@ struct TrainingAppReworkApp: App {
     
     var body: some Scene {
         WindowGroup {
+            let signInModel = LogInViewModel()
             ContentView()
+                .environmentObject(signInModel)
         }
     }
 }

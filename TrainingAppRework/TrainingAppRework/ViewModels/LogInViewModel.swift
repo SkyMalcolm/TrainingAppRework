@@ -15,7 +15,7 @@ class LogInViewModel: ObservableObject {
     let auth = Auth.auth()
     
     @Published var signedIn = false
-
+    
     var isSignedIn: Bool {
         return auth.currentUser != nil
     }
@@ -28,7 +28,7 @@ class LogInViewModel: ObservableObject {
             //Success
             DispatchQueue.main.async {
                 self?.signedIn = true
-    
+                
             }
         }
     }
@@ -47,7 +47,7 @@ class LogInViewModel: ObservableObject {
     }
     
     func signOut() {
-       try? auth.signOut()
+        try? auth.signOut()
         self.signedIn = false
     }
     

@@ -9,21 +9,24 @@ import SwiftUI
 import FirebaseAuth
 
 let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
+
 let loginViewModel = LogInViewModel()
 
+
 struct ContentView: View {
+    @EnvironmentObject var logIn : LogInViewModel
     
     var body: some View {
         NavigationView{
-            if loginViewModel.signedIn {
+            if logIn.signedIn {
                 MenuView()
             } else {
                 SignInView()
             }
-                
+            
         }.onAppear {
-            loginViewModel.signedIn = loginViewModel.isSignedIn
-        
+            logIn.signedIn = logIn.isSignedIn
+            
         }
     }
     
@@ -31,10 +34,9 @@ struct ContentView: View {
 
 
 struct SignInView: View {
-    
-    @EnvironmentObject var viewModel : LogInViewModel
     @State var email: String = ""
     @State var password: String = ""
+    @EnvironmentObject var signIn : LogInViewModel
     
     var body: some View {
         VStack {
@@ -56,25 +58,25 @@ struct SignInView: View {
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             //NavigationLink("SIGN IN", destination: MenuView())
-            NavigationLink(destination: MenuView()) {
-            Button(action: {
-                
-                guard !email.isEmpty, !password.isEmpty else {
-                    return
-                }
-                
-                loginViewModel.signIn(email: email, password: password)
-            }, label: {
-                Text("SIGN IN")
-            })
             
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .frame(width: 220, height: 60)
-                .background(Color.green)
-                .cornerRadius(15.0)
-            }
+             Button(action: {
+             
+             guard !email.isEmpty, !password.isEmpty else {
+             return
+             }
+                 signIn.signIn(email: email, password: password)
+             //loginViewModel.signIn(email: email, password: password)
+             }, label: {
+             Text("SIGN IN")
+             })
+             
+             .font(.headline)
+             .foregroundColor(.white)
+             .padding()
+             .frame(width: 220, height: 60)
+             .background(Color.green)
+             .cornerRadius(15.0)
+             
             
             NavigationLink("CREATE ACCOUNT", destination: SignUpView())
                 .font(.headline)
@@ -94,6 +96,7 @@ struct SignInView: View {
 struct SignUpView: View {
     @State var email: String = ""
     @State var password: String = ""
+    @EnvironmentObject var signUp: LogInViewModel
     
     var body: some View {
         VStack {
@@ -115,14 +118,14 @@ struct SignUpView: View {
                 .background(lightGreyColor)
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
-            NavigationLink(destination: MenuView()) {
+            
                 Button(action: {
                     
                     guard !email.isEmpty, !password.isEmpty else {
                         return
                     }
-                    
-                    loginViewModel.signUp(email: email, password: password)
+                    signUp.signUp(email: email, password: password)
+                    //loginViewModel.signUp(email: email, password: password)
                     
                 }, label: {
                     Text("REGISTER")
@@ -133,7 +136,7 @@ struct SignUpView: View {
                     .frame(width: 220, height: 60)
                     .background(Color.green)
                     .cornerRadius(15.0)
-            }
+            
         }
     }
 }
