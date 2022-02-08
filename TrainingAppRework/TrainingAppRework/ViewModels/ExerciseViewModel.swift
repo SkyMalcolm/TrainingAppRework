@@ -32,7 +32,7 @@ class ExerciseViewModel: ObservableObject {
                 let image = data["image"] as? String ?? ""
                 let name = data["name"] as? String ?? ""
                 
-                return Exercise(exerciseImage: image, exerciseName: name)
+                return Exercise(exerciseImage: image, exerciseName: name, muscle: muscle)
             }
         }
     }

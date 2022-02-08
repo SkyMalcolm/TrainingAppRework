@@ -22,7 +22,7 @@ struct MenuView: View {
             .background(Color.blue)
             .cornerRadius(15.0)
 
-            NavigationLink(destination: FavoriteExercisesView()){
+            NavigationLink(destination: FavoriteCategoryView()){
                 Text("Favorites")
             }
             .font(.headline)
