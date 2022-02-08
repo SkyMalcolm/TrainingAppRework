@@ -12,6 +12,8 @@ import FirebaseAuth
 
 class FavoriteViewModel: ObservableObject {
     
+    @Published var favorites = [Exercise]()
+    
     let auth = Auth.auth()
     
     let db = Firestore.firestore()
@@ -19,16 +21,48 @@ class FavoriteViewModel: ObservableObject {
     func addFavorites(exercise: Exercise) {
         
         let muscleName = exercise.muscle
-        guard let exerciseId = exercise.id else { return }
-        guard let uid = auth.currentUser?.uid else {return}
+        guard let exerciseId = exercise.id else {
+            print("no id")
+            return }
+        guard let uid = auth.currentUser?.uid else {
+            print("no uid")
+            return}
         
         db.collection("users").document(uid).collection("favorites").document(exerciseId).setData(["favorite" : exerciseId, "muscle" : muscleName])
         
         
     }
     
-    func fetchFavorites() {
+    func fetchFavorites(muscle: String) {
+        guard let uid = auth.currentUser?.uid else {return}
         
+        db.collection("users").document(uid).collection("favorites").getDocuments { ( querySnapshot, error) in
+            if let error = error {
+                print ("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID): \(document.data())")
+                    let data = document.data()
+                    guard let exerciseID = data["favorite"] as? String else {return}
+                    guard let muscle = data["muscle"] as? String else {return}
+                    
+                    self.db.collection("exercises").document(muscle).collection("exercises").document(exerciseID).getDocument {
+                        snapshot, error in
+                        if let snapshot = snapshot {
+                            if let data = snapshot.data() {
+                                
+                                let id = snapshot.documentID
+                                let image = data["image"] as! String
+                                let name = data["name"] as! String
+                                
+                                let exercise = Exercise(id: id, exerciseImage: image, exerciseName: name, muscle: muscle)
+                                self.favorites.append(exercise)
+                            }
+                        }
+                    }
+                }
+            }
+        }
         
     }
     

@@ -9,21 +9,21 @@ import SwiftUI
 
 struct FavoriteCategoryView: View {
     
-    @StateObject var secondMuscleViewModel = MuscleViewModel()
+    @StateObject var favoriteMuscleViewModel = MuscleViewModel()
     
     
     var body: some View {
         
-        List(secondMuscleViewModel.muscles) { secondMuscles in
-            NavigationLink(destination: FavoriteExercisesView()) {
+        List(favoriteMuscleViewModel.muscles) { favoriteMuscles in
+            NavigationLink(destination: FavoriteExercisesView(categoryName: favoriteMuscles.name)) {
                 HStack {
-                    Text(secondMuscles.name)
+                    Text(favoriteMuscles.name)
                 }
             }
             
             
         }.onAppear() {
-            self.secondMuscleViewModel.fetchData()
+            self.favoriteMuscleViewModel.fetchData()
         }
         
     }

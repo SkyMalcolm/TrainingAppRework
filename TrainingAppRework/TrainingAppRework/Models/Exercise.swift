@@ -11,7 +11,7 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct Exercise: Identifiable {
-    @DocumentID var id: String? = UUID().uuidString
+    @DocumentID var id: String?
     let exerciseImage: String
     let exerciseName: String
     let muscle: String
