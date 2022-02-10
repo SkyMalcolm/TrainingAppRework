@@ -36,40 +36,54 @@ class FavoriteViewModel: ObservableObject {
     func fetchFavorites(muscle: String) {
         guard let uid = auth.currentUser?.uid else {return}
         
-        db.collection("users").document(uid).collection("favorites").getDocuments { ( querySnapshot, error) in
+        db.collection("users").document(uid).collection("favorites").whereField("muscle", isEqualTo: muscle).addSnapshotListener() { ( querySnapshot, error) in
             if let error = error {
                 print ("Error getting documents: \(error)")
             } else {
+                self.favorites.removeAll()
                 for document in querySnapshot!.documents {
                     print("\(document.documentID): \(document.data())")
                     let data = document.data()
                     guard let exerciseID = data["favorite"] as? String else {return}
                     guard let muscle = data["muscle"] as? String else {return}
                     
-                    self.db.collection("exercises").document(muscle).collection("exercises").document(exerciseID).getDocument {
-                        snapshot, error in
-                        if let snapshot = snapshot {
-                            if let data = snapshot.data() {
+                    self.db.collection("exercises").document(muscle).collection("exercises").document(exerciseID).addSnapshotListener() { documentSnapshot, error in
+                      
+                        if let documentSnapShot = documentSnapshot {
+                            if let data = documentSnapShot.data() {
                                 
-                                let id = snapshot.documentID
+                                let id = documentSnapshot?.documentID
                                 let image = data["image"] as! String
                                 let name = data["name"] as! String
                                 
                                 let exercise = Exercise(id: id, exerciseImage: image, exerciseName: name, muscle: muscle)
                                 self.favorites.append(exercise)
+                                
                             }
                         }
                     }
                 }
             }
         }
+    }
+        
+        func removeFavorite(exercise: Exercise) {
+            guard let uid = auth.currentUser?.uid else { return }
+            guard let exerciseId = exercise.id else {
+                print("no id")
+                return }
+            
+            db.collection("users").document(uid).collection("favorites").document(exerciseId).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+            }
+            
+            
+        }
+        
+        
         
     }
-    
-    func removeFavorite() {
-        
-        
-    }
-    
-    
-}

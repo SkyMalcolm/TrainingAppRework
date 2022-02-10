@@ -10,12 +10,21 @@ import SwiftUI
 struct FavoriteExercisesView: View {
     
     @StateObject var favoriteViewModel = FavoriteViewModel()
+    
     var categoryName: String
     
     var body: some View {
         VStack {
         Text(categoryName)
             List(favoriteViewModel.favorites) { favorite in
+                VStack {
+                    Button(action: {
+                        favoriteViewModel.removeFavorite(exercise: favorite)
+                        
+                    }) {
+                        Label("delete favorite", systemImage: "heart.fill").foregroundColor(.red)
+                    }
+                }
                 VStack {
                     Text(favorite.exerciseName).font(.headline)
                     AsyncImage(url: URL(string: favorite.exerciseImage)) { ima in
@@ -28,8 +37,10 @@ struct FavoriteExercisesView: View {
                     } placeholder: {
                         ProgressView()
                     }
+                    
                 }
             }
+            
         }.onAppear {
             favoriteViewModel.fetchFavorites(muscle: categoryName)
         }
