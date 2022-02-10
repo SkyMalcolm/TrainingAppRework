@@ -27,6 +27,10 @@
 		91FA8E3627A02529004A24E1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 91FA8E3527A02529004A24E1 /* FirebaseStorage */; };
 		91FA8E3A27A03D24004A24E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91FA8E3927A03D24004A24E1 /* GoogleService-Info.plist */; };
 		91FA8E3E27A93C1B004A24E1 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E3D27A93C1A004A24E1 /* ExerciseViewModel.swift */; };
+		91FA8E4027AC0741004A24E1 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E3F27AC073F004A24E1 /* LogInViewModel.swift */; };
+		91FA8E4227B14302004A24E1 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E4127B14300004A24E1 /* FavoriteViewModel.swift */; };
+		91FA8E4427B1442B004A24E1 /* FavoriteCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E4327B1442B004A24E1 /* FavoriteCategoryView.swift */; };
+		91FA8E4627B14B0E004A24E1 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E4527B14B0E004A24E1 /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,10 @@
 		91FA8E2C27A021EA004A24E1 /* MuscleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleViewModel.swift; sourceTree = "<group>"; };
 		91FA8E3927A03D24004A24E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91FA8E3D27A93C1A004A24E1 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
+		91FA8E3F27AC073F004A24E1 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		91FA8E4127B14300004A24E1 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		91FA8E4327B1442B004A24E1 /* FavoriteCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCategoryView.swift; sourceTree = "<group>"; };
+		91FA8E4527B14B0E004A24E1 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +136,7 @@
 				91FA8DFB2791D7D4004A24E1 /* MuscleCategoryView.swift */,
 				91FA8DFD2796EA1F004A24E1 /* ExercisesView.swift */,
 				91FA8DF92791D7C0004A24E1 /* FavoriteExercisesView.swift */,
+				91FA8E4327B1442B004A24E1 /* FavoriteCategoryView.swift */,
 				91FA8E2127A0174D004A24E1 /* Models */,
 				91FA8DD12791D6CC004A24E1 /* Assets.xcassets */,
 				91FA8DD32791D6CC004A24E1 /* Preview Content */,
@@ -165,6 +174,8 @@
 			children = (
 				91FA8E2C27A021EA004A24E1 /* MuscleViewModel.swift */,
 				91FA8E3D27A93C1A004A24E1 /* ExerciseViewModel.swift */,
+				91FA8E3F27AC073F004A24E1 /* LogInViewModel.swift */,
+				91FA8E4127B14300004A24E1 /* FavoriteViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -174,6 +185,7 @@
 			children = (
 				91FA8E2827A01DA8004A24E1 /* Exercise.swift */,
 				91FA8E2A27A01F24004A24E1 /* Muscle.swift */,
+				91FA8E4527B14B0E004A24E1 /* Favorite.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -319,13 +331,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				91FA8E2B27A01F24004A24E1 /* Muscle.swift in Sources */,
+				91FA8E4627B14B0E004A24E1 /* Favorite.swift in Sources */,
 				91FA8E2927A01DA8004A24E1 /* Exercise.swift in Sources */,
+				91FA8E4027AC0741004A24E1 /* LogInViewModel.swift in Sources */,
 				91FA8E2D27A021EB004A24E1 /* MuscleViewModel.swift in Sources */,
 				91FA8DFE2796EA1F004A24E1 /* ExercisesView.swift in Sources */,
 				91FA8DFC2791D7D4004A24E1 /* MuscleCategoryView.swift in Sources */,
+				91FA8E4227B14302004A24E1 /* FavoriteViewModel.swift in Sources */,
 				91FA8DFA2791D7C0004A24E1 /* FavoriteExercisesView.swift in Sources */,
 				91FA8E3E27A93C1B004A24E1 /* ExerciseViewModel.swift in Sources */,
 				91FA8DD02791D6C9004A24E1 /* ContentView.swift in Sources */,
+				91FA8E4427B1442B004A24E1 /* FavoriteCategoryView.swift in Sources */,
 				91FA8DF82791D779004A24E1 /* MenuView.swift in Sources */,
 				91FA8DCE2791D6C9004A24E1 /* TrainingAppReworkApp.swift in Sources */,
 			);

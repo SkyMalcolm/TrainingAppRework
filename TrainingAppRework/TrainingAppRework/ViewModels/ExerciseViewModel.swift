@@ -29,10 +29,11 @@ class ExerciseViewModel: ObservableObject {
             self.exercises = documents.map { (QueryDocumentSnapshot) -> Exercise in
                 let data = QueryDocumentSnapshot.data()
                 
+                let id = QueryDocumentSnapshot.documentID
                 let image = data["image"] as? String ?? ""
                 let name = data["name"] as? String ?? ""
                 
-                return Exercise(exerciseImage: image, exerciseName: name)
+                return Exercise(id: id, exerciseImage: image, exerciseName: name, muscle: muscle)
             }
         }
     }
