@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MenuView: View {
+    @AppStorage("isDarkMode") private var isDarkMode = false
     
     @State var calendarViewModel = CalendarViewModel()
     
@@ -59,6 +60,18 @@ struct MenuView: View {
                 .frame(width: 220, height: 60)
                 .background(Color.red)
                 .cornerRadius(15.0)
+            
+            Picker("Mode", selection: $isDarkMode) {
+                Text("Light")
+                    .tag(false)
+                Text("Dark")
+                    .tag(true)
+                
+                
+                
+            }.pickerStyle(SegmentedPickerStyle())
+                .padding()
+                Spacer()
             
 
             

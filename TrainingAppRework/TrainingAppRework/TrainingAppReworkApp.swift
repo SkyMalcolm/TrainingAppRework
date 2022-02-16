@@ -10,6 +10,7 @@ import Firebase
 
 @main
 struct TrainingAppReworkApp: App {
+    @AppStorage("isDarkMode") private var isDarkMode = false
     
     init() {
         FirebaseApp.configure()
@@ -18,8 +19,10 @@ struct TrainingAppReworkApp: App {
     var body: some Scene {
         WindowGroup {
             let signInModel = LogInViewModel()
-            ContentView()
+            ContentView()//.preferredColorScheme(isDarkMode ? .dark : .light).accentColor(.primary)
+                
                 .environmentObject(signInModel)
+                
         }
     }
 }

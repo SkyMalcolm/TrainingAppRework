@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 struct MuscleCategoryView: View {
     
+    
     @StateObject var muscleViewModel = MuscleViewModel()
     
     var body: some View {

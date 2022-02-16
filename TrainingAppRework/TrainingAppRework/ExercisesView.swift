@@ -10,6 +10,7 @@ import SwiftUI
 struct ExercisesView: View {
     
     
+    
     @StateObject var exerciseViewModel = ExerciseViewModel()
     @StateObject var favoriteViewModel = FavoriteViewModel()
     
@@ -32,9 +33,9 @@ struct ExercisesView: View {
                     AsyncImage(url: URL(string: exercise.exerciseImage)) { ima in
                         ima.resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 350, height: 350)
+                            .frame(width: 320, height: 350)
                             .clipped()
-                        //.cornerRadius(150)
+                        
                         
                     } placeholder: {
                         ProgressView()

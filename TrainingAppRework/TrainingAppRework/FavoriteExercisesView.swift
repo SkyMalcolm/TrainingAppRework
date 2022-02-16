@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FavoriteExercisesView: View {
     
+    
     @StateObject var favoriteViewModel = FavoriteViewModel()
     
     var categoryName: String
@@ -30,14 +31,12 @@ struct FavoriteExercisesView: View {
                     AsyncImage(url: URL(string: favorite.exerciseImage)) { ima in
                         ima.resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 350, height: 350)
+                            .frame(width: 330, height: 350)
                             .clipped()
-                        //.cornerRadius(150)
                         
                     } placeholder: {
                         ProgressView()
                     }
-                    
                 }
             }
             
