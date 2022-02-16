@@ -22,7 +22,7 @@ struct FavoriteExercisesView: View {
                         favoriteViewModel.removeFavorite(exercise: favorite)
                         
                     }) {
-                        Label("delete favorite", systemImage: "heart.fill").foregroundColor(.red)
+                        Label("Delete Favorite", systemImage: "heart.fill").foregroundColor(.red)
                     }
                 }
                 VStack {

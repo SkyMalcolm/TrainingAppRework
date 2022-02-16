@@ -8,10 +8,26 @@
 import SwiftUI
 
 struct MenuView: View {
+    
+    @State var calendarViewModel = CalendarViewModel()
+    
     @EnvironmentObject var signOut: LogInViewModel
     var body: some View {
 
         VStack{
+            
+            Button(action: {
+                calendarViewModel.openCalendar()
+            }, label: {
+                Text("My Schedule")
+            })
+            .font(.headline)
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 220, height: 60)
+            .background(Color.blue)
+            .cornerRadius(15.0)
+            
             NavigationLink(destination: MuscleCategoryView()){
                 Text("Exercises")
             }
@@ -37,6 +53,12 @@ struct MenuView: View {
             }, label: {
                 Text("Sign Out")
             })
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .frame(width: 220, height: 60)
+                .background(Color.red)
+                .cornerRadius(15.0)
             
 
             

@@ -31,6 +31,8 @@
 		91FA8E4227B14302004A24E1 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E4127B14300004A24E1 /* FavoriteViewModel.swift */; };
 		91FA8E4427B1442B004A24E1 /* FavoriteCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E4327B1442B004A24E1 /* FavoriteCategoryView.swift */; };
 		91FA8E4627B14B0E004A24E1 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E4527B14B0E004A24E1 /* Favorite.swift */; };
+		91FA8E4827B53913004A24E1 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E4727B53910004A24E1 /* CalendarView.swift */; };
+		91FA8E4A27BD3AEA004A24E1 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E4927BD3AEA004A24E1 /* CalendarViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		91FA8E4127B14300004A24E1 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		91FA8E4327B1442B004A24E1 /* FavoriteCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCategoryView.swift; sourceTree = "<group>"; };
 		91FA8E4527B14B0E004A24E1 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		91FA8E4727B53910004A24E1 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		91FA8E4927BD3AEA004A24E1 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,7 @@
 				91FA8E1927A00627004A24E1 /* ViewModels */,
 				91FA8DCD2791D6C9004A24E1 /* TrainingAppReworkApp.swift */,
 				91FA8DCF2791D6C9004A24E1 /* ContentView.swift */,
+				91FA8E4727B53910004A24E1 /* CalendarView.swift */,
 				91FA8DF72791D779004A24E1 /* MenuView.swift */,
 				91FA8DFB2791D7D4004A24E1 /* MuscleCategoryView.swift */,
 				91FA8DFD2796EA1F004A24E1 /* ExercisesView.swift */,
@@ -176,6 +181,7 @@
 				91FA8E3D27A93C1A004A24E1 /* ExerciseViewModel.swift */,
 				91FA8E3F27AC073F004A24E1 /* LogInViewModel.swift */,
 				91FA8E4127B14300004A24E1 /* FavoriteViewModel.swift */,
+				91FA8E4927BD3AEA004A24E1 /* CalendarViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -335,8 +341,10 @@
 				91FA8E2927A01DA8004A24E1 /* Exercise.swift in Sources */,
 				91FA8E4027AC0741004A24E1 /* LogInViewModel.swift in Sources */,
 				91FA8E2D27A021EB004A24E1 /* MuscleViewModel.swift in Sources */,
+				91FA8E4827B53913004A24E1 /* CalendarView.swift in Sources */,
 				91FA8DFE2796EA1F004A24E1 /* ExercisesView.swift in Sources */,
 				91FA8DFC2791D7D4004A24E1 /* MuscleCategoryView.swift in Sources */,
+				91FA8E4A27BD3AEA004A24E1 /* CalendarViewModel.swift in Sources */,
 				91FA8E4227B14302004A24E1 /* FavoriteViewModel.swift in Sources */,
 				91FA8DFA2791D7C0004A24E1 /* FavoriteExercisesView.swift in Sources */,
 				91FA8E3E27A93C1B004A24E1 /* ExerciseViewModel.swift in Sources */,

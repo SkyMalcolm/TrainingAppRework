@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ExercisesView: View {
     
+    
     @StateObject var exerciseViewModel = ExerciseViewModel()
     @StateObject var favoriteViewModel = FavoriteViewModel()
     
@@ -21,9 +22,9 @@ struct ExercisesView: View {
                 VStack(alignment: .center, spacing: 5.0) {
                     Button(action: {
                         favoriteViewModel.addFavorites(exercise: exercise)
-                        print("hej")
+                        
                     }) {
-                        Label("favorite", systemImage: "heart.fill").foregroundColor(.red)
+                        Label("Add To Favorite", systemImage: "heart.fill").foregroundColor(.red)
                     }
                 }
                 VStack {
@@ -47,11 +48,11 @@ struct ExercisesView: View {
         }
         
     }
+    
 }
 
-
-struct ExercisesView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExercisesView(categoryName: "Legs")
-    }
-}
+/*struct ExercisesView_Previews: PreviewProvider {
+ static var previews: some View {
+ ExercisesView(categoryName: "Legs")
+ }
+ }*/
