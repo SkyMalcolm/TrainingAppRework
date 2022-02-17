@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FavoriteExercisesView: View {
     
+    
     @StateObject var favoriteViewModel = FavoriteViewModel()
     
     var categoryName: String
@@ -18,26 +19,24 @@ struct FavoriteExercisesView: View {
         Text(categoryName)
             List(favoriteViewModel.favorites) { favorite in
                 VStack {
+                    Text(favorite.exerciseName).font(.headline)
                     Button(action: {
                         favoriteViewModel.removeFavorite(exercise: favorite)
                         
                     }) {
-                        Label("delete favorite", systemImage: "heart.fill").foregroundColor(.red)
+                        Label("Delete Favorite", systemImage: "heart.fill").foregroundColor(.red)
                     }
                 }
                 VStack {
-                    Text(favorite.exerciseName).font(.headline)
                     AsyncImage(url: URL(string: favorite.exerciseImage)) { ima in
                         ima.resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 350, height: 350)
+                            .frame(width: 330, height: 350)
                             .clipped()
-                        //.cornerRadius(150)
                         
                     } placeholder: {
                         ProgressView()
                     }
-                    
                 }
             }
             

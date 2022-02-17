@@ -20,6 +20,7 @@ struct TrainingAppReworkApp: App {
             let signInModel = LogInViewModel()
             ContentView()
                 .environmentObject(signInModel)
+                
         }
     }
 }

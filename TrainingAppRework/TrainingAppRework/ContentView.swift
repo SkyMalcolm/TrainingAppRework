@@ -8,12 +8,12 @@
 import SwiftUI
 import FirebaseAuth
 
-let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
-
 let loginViewModel = LogInViewModel()
 
 
 struct ContentView: View {
+    @AppStorage("isDarkMode") private var isDarkMode = false
+    
     @EnvironmentObject var logIn : LogInViewModel
     
     var body: some View {
@@ -27,7 +27,7 @@ struct ContentView: View {
         }.onAppear {
             logIn.signedIn = logIn.isSignedIn
             
-        }
+        }.preferredColorScheme(isDarkMode ? .dark : .light)
     }
     
 }
@@ -50,14 +50,12 @@ struct SignInView: View {
             TextField("Email", text: $email).disableAutocorrection(true)
                 .autocapitalization(.none)
                 .padding()
-                .background(lightGreyColor)
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             SecureField("Password", text: $password).disableAutocorrection(true).autocapitalization(.none).padding()
-                .background(lightGreyColor)
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
-            //NavigationLink("SIGN IN", destination: MenuView())
+            
             
              Button(action: {
              
@@ -65,7 +63,7 @@ struct SignInView: View {
              return
              }
                  signIn.signIn(email: email, password: password)
-             //loginViewModel.signIn(email: email, password: password)
+             
              }, label: {
              Text("SIGN IN")
              })
@@ -109,13 +107,11 @@ struct SignUpView: View {
                 .padding(.bottom, 75)
             TextField("Email", text: $email)
                 .disableAutocorrection(true).autocapitalization(.none).padding()
-                .background(lightGreyColor)
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             SecureField("Password", text: $password).disableAutocorrection(true)
                 .autocapitalization(.none)
                 .padding()
-                .background(lightGreyColor)
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             
@@ -125,7 +121,7 @@ struct SignUpView: View {
                         return
                     }
                     signUp.signUp(email: email, password: password)
-                    //loginViewModel.signUp(email: email, password: password)
+                    
                     
                 }, label: {
                     Text("REGISTER")

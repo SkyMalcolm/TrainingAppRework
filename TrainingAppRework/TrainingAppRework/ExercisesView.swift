@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExercisesView: View {
     
+    
+    
     @StateObject var exerciseViewModel = ExerciseViewModel()
     @StateObject var favoriteViewModel = FavoriteViewModel()
     
@@ -18,22 +20,23 @@ struct ExercisesView: View {
         VStack{
             Text(categoryName)
             List(exerciseViewModel.exercises) { exercise in
-                VStack(alignment: .center, spacing: 5.0) {
+                VStack {
+                    Text(exercise.exerciseName).font(.headline)
                     Button(action: {
                         favoriteViewModel.addFavorites(exercise: exercise)
-                        print("hej")
+                        
                     }) {
-                        Label("favorite", systemImage: "heart.fill").foregroundColor(.red)
+                        Label("Add To Favorite", systemImage: "heart.fill").foregroundColor(.red)
                     }
                 }
                 VStack {
-                    Text(exercise.exerciseName).font(.headline)
+                    
                     AsyncImage(url: URL(string: exercise.exerciseImage)) { ima in
                         ima.resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 350, height: 350)
+                            .frame(width: 320, height: 350)
                             .clipped()
-                        //.cornerRadius(150)
+                        
                         
                     } placeholder: {
                         ProgressView()
@@ -47,11 +50,11 @@ struct ExercisesView: View {
         }
         
     }
+    
 }
 
-
-struct ExercisesView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExercisesView(categoryName: "Legs")
-    }
-}
+/*struct ExercisesView_Previews: PreviewProvider {
+ static var previews: some View {
+ ExercisesView(categoryName: "Legs")
+ }
+ }*/

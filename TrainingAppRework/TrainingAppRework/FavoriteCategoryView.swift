@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct FavoriteCategoryView: View {
-    
     @StateObject var favoriteMuscleViewModel = MuscleViewModel()
-    
     
     var body: some View {
         
@@ -20,12 +18,9 @@ struct FavoriteCategoryView: View {
                     Text(favoriteMuscles.name)
                 }
             }
-            
-            
         }.onAppear() {
             self.favoriteMuscleViewModel.fetchData()
         }
-        
     }
 }
 
