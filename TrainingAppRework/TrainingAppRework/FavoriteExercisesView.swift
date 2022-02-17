@@ -19,6 +19,7 @@ struct FavoriteExercisesView: View {
         Text(categoryName)
             List(favoriteViewModel.favorites) { favorite in
                 VStack {
+                    Text(favorite.exerciseName).font(.headline)
                     Button(action: {
                         favoriteViewModel.removeFavorite(exercise: favorite)
                         
@@ -27,7 +28,6 @@ struct FavoriteExercisesView: View {
                     }
                 }
                 VStack {
-                    Text(favorite.exerciseName).font(.headline)
                     AsyncImage(url: URL(string: favorite.exerciseImage)) { ima in
                         ima.resizable()
                             .aspectRatio(contentMode: .fit)

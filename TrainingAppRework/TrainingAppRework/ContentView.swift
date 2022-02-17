@@ -12,6 +12,7 @@ let loginViewModel = LogInViewModel()
 
 
 struct ContentView: View {
+    @AppStorage("isDarkMode") private var isDarkMode = false
     
     @EnvironmentObject var logIn : LogInViewModel
     
@@ -26,7 +27,7 @@ struct ContentView: View {
         }.onAppear {
             logIn.signedIn = logIn.isSignedIn
             
-        }
+        }.preferredColorScheme(isDarkMode ? .dark : .light)
     }
     
 }

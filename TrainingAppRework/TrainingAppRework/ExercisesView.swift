@@ -20,7 +20,8 @@ struct ExercisesView: View {
         VStack{
             Text(categoryName)
             List(exerciseViewModel.exercises) { exercise in
-                VStack(alignment: .center, spacing: 5.0) {
+                VStack {
+                    Text(exercise.exerciseName).font(.headline)
                     Button(action: {
                         favoriteViewModel.addFavorites(exercise: exercise)
                         
@@ -29,7 +30,7 @@ struct ExercisesView: View {
                     }
                 }
                 VStack {
-                    Text(exercise.exerciseName).font(.headline)
+                    
                     AsyncImage(url: URL(string: exercise.exerciseImage)) { ima in
                         ima.resizable()
                             .aspectRatio(contentMode: .fit)

@@ -10,6 +10,8 @@ import SwiftUI
 struct MenuView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
     
+        //.preferredColorScheme(isDarkMode ? .dark : .light).accentColor(.primary)
+    
     @State var calendarViewModel = CalendarViewModel()
     
     @EnvironmentObject var signOut: LogInViewModel
@@ -67,16 +69,8 @@ struct MenuView: View {
                 Text("Dark")
                     .tag(true)
                 
-                
-                
             }.pickerStyle(SegmentedPickerStyle())
                 .padding()
-                Spacer()
-            
-
-            
-            
-
         }
 
     }
