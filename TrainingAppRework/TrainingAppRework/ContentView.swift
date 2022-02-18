@@ -32,7 +32,6 @@ struct ContentView: View {
     
 }
 
-
 struct SignInView: View {
     @State var email: String = ""
     @State var password: String = ""
@@ -56,25 +55,21 @@ struct SignInView: View {
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             
-            
-             Button(action: {
-             
-             guard !email.isEmpty, !password.isEmpty else {
-             return
-             }
-                 signIn.signIn(email: email, password: password)
-             
-             }, label: {
-             Text("SIGN IN")
-             })
-             
-             .font(.headline)
-             .foregroundColor(.white)
-             .padding()
-             .frame(width: 220, height: 60)
-             .background(Color.green)
-             .cornerRadius(15.0)
-             
+            Button(action: {
+                guard !email.isEmpty, !password.isEmpty else {
+                    return
+                }
+                signIn.signIn(email: email, password: password)
+                
+            }, label: {
+                Text("SIGN IN")
+            })
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .frame(width: 220, height: 60)
+                .background(Color.green)
+                .cornerRadius(15.0)
             
             NavigationLink("CREATE ACCOUNT", destination: SignUpView())
                 .font(.headline)
@@ -89,7 +84,6 @@ struct SignInView: View {
         
     }
 }
-
 
 struct SignUpView: View {
     @State var email: String = ""
@@ -115,23 +109,21 @@ struct SignUpView: View {
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             
-                Button(action: {
-                    
-                    guard !email.isEmpty, !password.isEmpty else {
-                        return
-                    }
-                    signUp.signUp(email: email, password: password)
-                    
-                    
-                }, label: {
-                    Text("REGISTER")
-                })
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 220, height: 60)
-                    .background(Color.green)
-                    .cornerRadius(15.0)
+            Button(action: {
+                guard !email.isEmpty, !password.isEmpty else {
+                    return
+                }
+                signUp.signUp(email: email, password: password)
+                
+            }, label: {
+                Text("REGISTER")
+            })
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .frame(width: 220, height: 60)
+                .background(Color.green)
+                .cornerRadius(15.0)
             
         }
     }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FavoriteCategoryView: View {
+    
     @StateObject var favoriteMuscleViewModel = MuscleViewModel()
     
     var body: some View {

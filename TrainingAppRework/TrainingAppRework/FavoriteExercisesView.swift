@@ -9,14 +9,13 @@ import SwiftUI
 
 struct FavoriteExercisesView: View {
     
-    
     @StateObject var favoriteViewModel = FavoriteViewModel()
     
     var categoryName: String
     
     var body: some View {
         VStack {
-        Text(categoryName)
+            Text(categoryName)
             List(favoriteViewModel.favorites) { favorite in
                 VStack {
                     Text(favorite.exerciseName).font(.headline)

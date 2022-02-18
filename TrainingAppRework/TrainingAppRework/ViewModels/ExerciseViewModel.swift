@@ -19,8 +19,6 @@ class ExerciseViewModel: ObservableObject {
     func fetchExerciseData(muscle: String) {
         
         db.collection("exercises").document(muscle).collection("exercises").getDocuments() { (QuerySnapshot, error) in
-            
-            
             guard let documents = QuerySnapshot?.documents else {
                 print("no documents")
                 return
@@ -32,7 +30,6 @@ class ExerciseViewModel: ObservableObject {
                 let id = QueryDocumentSnapshot.documentID
                 let image = data["image"] as? String ?? ""
                 let name = data["name"] as? String ?? ""
-                
                 return Exercise(id: id, exerciseImage: image, exerciseName: name, muscle: muscle)
             }
         }
