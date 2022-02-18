@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ExercisesView: View {
     
-    
-    
     @StateObject var exerciseViewModel = ExerciseViewModel()
     @StateObject var favoriteViewModel = FavoriteViewModel()
     

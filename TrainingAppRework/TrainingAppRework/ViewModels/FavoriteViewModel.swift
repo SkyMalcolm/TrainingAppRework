@@ -48,7 +48,7 @@ class FavoriteViewModel: ObservableObject {
                     guard let muscle = data["muscle"] as? String else {return}
                     
                     self.db.collection("exercises").document(muscle).collection("exercises").document(exerciseID).addSnapshotListener() { documentSnapshot, error in
-                      
+                        
                         if let documentSnapShot = documentSnapshot {
                             if let data = documentSnapShot.data() {
                                 
@@ -66,24 +66,24 @@ class FavoriteViewModel: ObservableObject {
             }
         }
     }
+    
+    func removeFavorite(exercise: Exercise) {
+        guard let uid = auth.currentUser?.uid else { return }
+        guard let exerciseId = exercise.id else {
+            print("no id")
+            return }
         
-        func removeFavorite(exercise: Exercise) {
-            guard let uid = auth.currentUser?.uid else { return }
-            guard let exerciseId = exercise.id else {
-                print("no id")
-                return }
-            
-            db.collection("users").document(uid).collection("favorites").document(exerciseId).delete() { err in
-                if let err = err {
-                    print("Error removing document: \(err)")
-                } else {
-                    print("Document successfully removed!")
-                }
+        db.collection("users").document(uid).collection("favorites").document(exerciseId).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
             }
-            
-            
         }
         
         
-        
     }
+    
+    
+    
+}

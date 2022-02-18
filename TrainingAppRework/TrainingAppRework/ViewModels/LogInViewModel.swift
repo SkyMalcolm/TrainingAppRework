@@ -25,7 +25,7 @@ class LogInViewModel: ObservableObject {
             guard result != nil, error == nil else {
                 return
             }
-            //Success
+
             DispatchQueue.main.async {
                 self?.signedIn = true
                 
@@ -39,7 +39,6 @@ class LogInViewModel: ObservableObject {
                 return
             }
             
-            //Success
             DispatchQueue.main.async {
                 self?.signedIn = true
             }

@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct MenuView: View {
-    @AppStorage("isDarkMode") private var isDarkMode = false
-    
-        //.preferredColorScheme(isDarkMode ? .dark : .light).accentColor(.primary)
     
     @State var calendarViewModel = CalendarViewModel()
     
@@ -18,7 +15,6 @@ struct MenuView: View {
     var body: some View {
 
         VStack{
-            
             Button(action: {
                 calendarViewModel.openCalendar()
             }, label: {

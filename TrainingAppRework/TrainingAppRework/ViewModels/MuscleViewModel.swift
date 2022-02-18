@@ -21,7 +21,7 @@ class MuscleViewModel: ObservableObject {
             //print("errorNotis: \(error)")
             
             guard let documents = QuerySnapshot?.documents else {
-               // print("no documents")
+                // print("no documents")
                 return
             }
             
