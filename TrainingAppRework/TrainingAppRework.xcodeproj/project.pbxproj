@@ -32,6 +32,9 @@
 		91FA8E4427B1442B004A24E1 /* FavoriteCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E4327B1442B004A24E1 /* FavoriteCategoryView.swift */; };
 		91FA8E4627B14B0E004A24E1 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E4527B14B0E004A24E1 /* Favorite.swift */; };
 		91FA8E4A27BD3AEA004A24E1 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA8E4927BD3AEA004A24E1 /* CalendarViewModel.swift */; };
+		DCF5D8D328509507000E3931 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF5D8D228509507000E3931 /* SignInView.swift */; };
+		DCF5D8D528509536000E3931 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF5D8D428509536000E3931 /* SignUpView.swift */; };
+		DCF5D8D728509E39000E3931 /* EmailAndPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF5D8D628509E39000E3931 /* EmailAndPasswordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		91FA8E4327B1442B004A24E1 /* FavoriteCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCategoryView.swift; sourceTree = "<group>"; };
 		91FA8E4527B14B0E004A24E1 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		91FA8E4927BD3AEA004A24E1 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		DCF5D8D228509507000E3931 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		DCF5D8D428509536000E3931 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		DCF5D8D628509E39000E3931 /* EmailAndPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAndPasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +140,9 @@
 				91FA8E1927A00627004A24E1 /* ViewModels */,
 				91FA8DCD2791D6C9004A24E1 /* TrainingAppReworkApp.swift */,
 				91FA8DCF2791D6C9004A24E1 /* ContentView.swift */,
+				DCF5D8D628509E39000E3931 /* EmailAndPasswordView.swift */,
+				DCF5D8D228509507000E3931 /* SignInView.swift */,
+				DCF5D8D428509536000E3931 /* SignUpView.swift */,
 				91FA8DF72791D779004A24E1 /* MenuView.swift */,
 				91FA8DFB2791D7D4004A24E1 /* MuscleCategoryView.swift */,
 				91FA8DFD2796EA1F004A24E1 /* ExercisesView.swift */,
@@ -335,6 +344,7 @@
 			files = (
 				91FA8E2B27A01F24004A24E1 /* Muscle.swift in Sources */,
 				91FA8E4627B14B0E004A24E1 /* Favorite.swift in Sources */,
+				DCF5D8D728509E39000E3931 /* EmailAndPasswordView.swift in Sources */,
 				91FA8E2927A01DA8004A24E1 /* Exercise.swift in Sources */,
 				91FA8E4027AC0741004A24E1 /* LogInViewModel.swift in Sources */,
 				91FA8E2D27A021EB004A24E1 /* MuscleViewModel.swift in Sources */,
@@ -345,8 +355,10 @@
 				91FA8DFA2791D7C0004A24E1 /* FavoriteExercisesView.swift in Sources */,
 				91FA8E3E27A93C1B004A24E1 /* ExerciseViewModel.swift in Sources */,
 				91FA8DD02791D6C9004A24E1 /* ContentView.swift in Sources */,
+				DCF5D8D528509536000E3931 /* SignUpView.swift in Sources */,
 				91FA8E4427B1442B004A24E1 /* FavoriteCategoryView.swift in Sources */,
 				91FA8DF82791D779004A24E1 /* MenuView.swift in Sources */,
+				DCF5D8D328509507000E3931 /* SignInView.swift in Sources */,
 				91FA8DCE2791D6C9004A24E1 /* TrainingAppReworkApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

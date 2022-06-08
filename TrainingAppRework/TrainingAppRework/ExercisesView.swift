@@ -46,13 +46,5 @@ struct ExercisesView: View {
         }.onAppear() {
             self.exerciseViewModel.fetchExerciseData(muscle: categoryName)
         }
-        
     }
-    
 }
-
-/*struct ExercisesView_Previews: PreviewProvider {
- static var previews: some View {
- ExercisesView(categoryName: "Legs")
- }
- }*/

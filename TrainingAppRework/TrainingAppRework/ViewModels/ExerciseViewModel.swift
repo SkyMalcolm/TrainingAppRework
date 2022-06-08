@@ -25,11 +25,11 @@ class ExerciseViewModel: ObservableObject {
             }
             
             self.exercises = documents.map { (QueryDocumentSnapshot) -> Exercise in
-                let data = QueryDocumentSnapshot.data()
+                let firestoreData = QueryDocumentSnapshot.data()
                 
                 let id = QueryDocumentSnapshot.documentID
-                let image = data["image"] as? String ?? ""
-                let name = data["name"] as? String ?? ""
+                let image = firestoreData["image"] as? String ?? ""
+                let name = firestoreData["name"] as? String ?? ""
                 return Exercise(id: id, exerciseImage: image, exerciseName: name, muscle: muscle)
             }
         }
