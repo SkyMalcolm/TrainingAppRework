@@ -25,13 +25,14 @@ class LogInViewModel: ObservableObject {
             guard result != nil, error == nil else {
                 return
             }
-
+            
             DispatchQueue.main.async {
                 self?.signedIn = true
                 
             }
         }
     }
+    
     
     func signUp(email: String, password: String) {
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
@@ -44,6 +45,7 @@ class LogInViewModel: ObservableObject {
             }
         }
     }
+    
     
     func signOut() {
         try? auth.signOut()

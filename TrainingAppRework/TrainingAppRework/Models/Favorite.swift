@@ -11,7 +11,6 @@ import FirebaseFirestoreSwift
 import Firebase
 
 struct Favorite: Identifiable {
-    
     @DocumentID var id: String? = UUID().uuidString
     let favoriteImage: String
     let favoriteName: String

@@ -42,7 +42,7 @@ class FavoriteViewModel: ObservableObject {
             } else {
                 self.favorites.removeAll()
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID): \(document.data())")
+                   
                     let data = document.data()
                     guard let exerciseID = data["favorite"] as? String else {return}
                     guard let muscle = data["muscle"] as? String else {return}
